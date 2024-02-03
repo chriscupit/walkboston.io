@@ -1,3 +1,4 @@
+//Function that gets the 8th value and 11th value from the data for each employee
 function renderPosts(boston, container) {
   var people = boston.data;
   const len = boston.data.length;
@@ -6,11 +7,11 @@ function renderPosts(boston, container) {
     html +=
       '<li class="post">' + '<h2>' + people[i][8] + '</h2>' + '<h3>' + people[i][11] + '</h3>';
   }
+  //creates the data section on the page
   container.innerHTML = '<ul id = "data">' + html + '</ul>';
 }
-
+//function that gets the top salaries
 function renderTopSalaries(boston, container) {
-  // Step 1 solution
   var people = boston.data;
   var topSalaries = people.sort((a, b) => b[11] - a[11]).slice(0, 5);
   const len = topSalaries.length;
@@ -25,12 +26,11 @@ function renderTopSalaries(boston, container) {
       topSalaries[i][11] +
       '</h3>';
   }
-
+//sends the salaries to the html page
   container.innerHTML = '<ul id = "topSalaries">' + html + '</ul>';
 }
 
 function renderTopEmployees(boston, container) {
-  //step 2 solution
   var people = boston.data;
   var topEmployees = people.filter((a) => a[11] > 200000);
   const len = topEmployees.length;
@@ -45,9 +45,9 @@ function renderTopEmployees(boston, container) {
       topEmployees[i][11] +
       '</h3>';
   }
-
+//sends the employess to the web page
   container.innerHTML += '<ul id = "topEmployees">' + html + '</ul>';
 }
 
-renderTopSalaries(boston, document.getElementById('container')); //step 1 solution
-renderTopEmployees(boston, document.getElementById('container')); //step 2 solution
+renderTopSalaries(boston, document.getElementById('container'));
+renderTopEmployees(boston, document.getElementById('container'));
